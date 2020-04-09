@@ -1,5 +1,9 @@
 
- import 'package:flutter/material.dart';
+ import 'dart:async';
+
+import 'package:alt_soap/src/constants/util.dart';
+import 'package:alt_soap/src/views/screens/home.dart';
+import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -7,6 +11,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(
+      Duration(seconds : 2) ,(){
+        Utils.goto(context,HomeScreen());
+      }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
