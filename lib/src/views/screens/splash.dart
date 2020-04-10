@@ -1,9 +1,12 @@
 
  import 'dart:async';
-
-import 'package:alt_soap/src/constants/util.dart';
-import 'package:alt_soap/src/views/screens/home.dart';
+import 'package:alt_soap/src/localStorage.dart';
+import 'package:alt_soap/src/utils/utils.dart';
+import 'package:alt_soap/src/views/screens/intro.dart';
 import 'package:flutter/material.dart';
+
+
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -11,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
+   Screen size;
 
   @override
   void initState() {
@@ -19,29 +22,39 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(
       Duration(seconds : 2) ,(){
-        Utils.goto(context,HomeScreen());
+        Utils.goto(context,IntroScreen(),isReplace: false);
       }
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    size = Screen(MediaQuery.of(context).size);
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Alt Soap "),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset("images/alt.png")
-          ],
-        ),
-      ),
-     
+        body: Center(
+        child: Container(
+          width: size.getWidthPx(300),
+          height: size.getWidthPx(300),
+          child: Image.asset("images/alt.png")))
     );
   }
+
+  
+//test if new then go to intro screen 
+//else login
+   /* Future navigateFromSplash () async {
+
+    String isOnBoard = await LocalStorage.sharedInstance.readValue(Constants.isOnBoard);
+      print("isOnBoard  $isOnBoard");
+      if(isOnBoard ==null || isOnBoard == "0"){
+        //Navigate to OnBoarding Screen.
+        Utils.goto(context,IntroScreen(),isReplace: false);
+      }else{
+        
+      }
+  } */
+
+
+
+ 
 }
