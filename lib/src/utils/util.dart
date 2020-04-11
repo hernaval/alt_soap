@@ -1,9 +1,12 @@
 import 'dart:io';
 
 import 'package:alt_soap/src/utils/Constants.dart';
+import 'package:alt_soap/src/utils/utils.dart';
+import 'package:alt_soap/src/views/screens/login.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Utils{
   Utils._();
@@ -129,6 +132,60 @@ class Utils{
       }
     }
     return val;
+  }
+
+  static void showConnection(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+              content: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                  Icon(FontAwesomeIcons.userCircle, color: Loko.blue, size: 36),
+                  Padding(
+                    padding: EdgeInsets.only(right: 8),
+                  ),
+                  Text("Welcome",
+                      style: TextStyle(
+                          fontSize: 16, fontFamily: "GoogleSans Bold"))
+                ]),
+                Divider(),
+                Text(
+                    "Log in to find places for collections of used oils from different locations. You earn points as and when deliveries are made and earn goodies from 20 points",
+                    style: TextStyle(fontSize: 14)),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 3),
+                ),
+                FlatButton(
+                  onPressed: () {
+                   // _handleSignIn();
+                    Navigator.pop(context);
+                  },
+                  child: InkWell(
+                    onTap : () {
+                      Utils.goto(context, LoginPage());
+                    },
+                    child : Row(
+                    children: <Widget>[
+          
+                      Icon(FontAwesomeIcons.signInAlt),
+                      Padding(
+                        padding: EdgeInsets.only(right: 5),
+                      ),
+                      Text('Sign In')
+                    ],
+                  ),
+                  )
+                ),
+              ],
+            ),
+          ));
+        });
   }
 
 

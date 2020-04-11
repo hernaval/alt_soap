@@ -1,6 +1,7 @@
 import 'package:alt_soap/src/utils/utils.dart';
+import 'package:alt_soap/src/views/screens/home.dart';
 import 'package:alt_soap/src/views/screens/intro_page.dart';
-import 'package:alt_soap/src/views/screens/login.dart';
+
 import 'package:alt_soap/src/views/widgets/dots_indicators.dart';
 import 'package:flutter/material.dart';
 
@@ -13,12 +14,12 @@ class _IntroScreenState extends State<IntroScreen> {
     Screen  size;
     final _controller = PageController();
     bool leadingVisibility = false;
-    String health ="";
-    String environemnt ="";
-    String generosity ="";
+    static String health ="Nothing is more effective at protecting yourself from infectious diseases like the flu (influenza) and colds than washing your hands well with soap (or using an alcohol-based disinfectant). In addition to protecting yourself, this measure helps prevent the transmission of infectious diseases.";
+    static String environemnt =" Sorting and recycling waste both reduces pollution of the planet and preserves natural resources \n \n ";
+    static String generosity ="";
     final List<Widget> _pages = [
-    IntroPage("images/onboard_1.png","HEALT", "View activity collected by your fitness trackers and your other mobile apps! \n \n Data has never been more beautiful or easier to understand!"),
-    IntroPage("images/onboard_2.png","ENVIRONMENT", "A new kind of fittness tracking! \n \n 100% free, because great heath should be accessible to all!"),
+      IntroPage("images/onboard_2.png","ENVIRONMENT", environemnt),
+    IntroPage("images/onboard_1.png","HEALTH", health),
     IntroPage("images/onboard_3.png","GENEROSITY", "Your progress photos are being put to good use! \n \n The photoLAPSE feature allows you to view your result over custom time periods!"),
   ];
   int currentPageIndex = 0;
@@ -104,7 +105,7 @@ Positioned bottomDotsWidget() {
 
                   //LocalStorage.sharedInstance.writeValue(key:Constants.isOnBoard,value: "1");
 
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
                 }
                     : () {

@@ -1,6 +1,6 @@
 import 'package:alt_soap/src/utils/utils.dart';
-import 'package:alt_soap/src/views/screens/intro.dart';
-import 'package:alt_soap/src/views/screens/map.dart';
+import 'package:alt_soap/src/views/screens/home.dart';
+
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -167,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.all(12.0),
                 shape: StadiumBorder(),
                 onPressed: () {
-                  Utils.goto(context,MapPage(),isReplace : true);
+                  Utils.goto(context,HomeScreen(),isReplace : true);
                 },
                 child: Text(
                   'LOGIN',
