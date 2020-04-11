@@ -1,7 +1,10 @@
- import 'package:alt_soap/src/views/screens/details.dart';
+ import 'package:alt_soap/src/utils/utils.dart';
+import 'package:alt_soap/src/utils/utils.dart';
+import 'package:alt_soap/src/views/screens/details.dart';
 import 'package:alt_soap/src/views/widgets/customBottomBar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -50,12 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
                  
                   SizedBox(width: MediaQuery.of(context).size.width - 210.0),
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      'images/alt.png',
-                      width: 35.0,
-                      height: 35.0,
-                    ),
+                    borderRadius: BorderRadius.circular(16.0),
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.userCircle), 
+                      onPressed: (){
+                        Utils.showConnection(context);
+                      }
+                    )
                   ),
                 ],
               ),
@@ -222,18 +226,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
-                      cardItemWidget(context, 'images/alt.png',
-                          'Snack Bucks', '60L/mounths'),
+                      cardItemWidget(context, 'images/gastro.jpg',
+                          'Gastro Pizza', '60L/mounths'),
                       Padding(
                         padding: EdgeInsets.only(left: 12.0),
                       ),
-                      cardItemWidget(context, 'images/alt.png',
-                          'John Doe', '48L/mounths'),
+                      cardItemWidget(context, 'images/kfc.jpg',
+                          'KFC', '48L/mounths'),
                       Padding(
                         padding: EdgeInsets.only(left: 12.0),
                       ),
-                      cardItemWidget(context, 'images/alt.png',
-                          'Magie Coffe', '37L/mounths'),
+                      cardItemWidget(context, 'images/mcdo.jpg',
+                          'McDonald', '37L/mounths'),
                       Padding(
                         padding: EdgeInsets.only(right: 12.0),
                       ),
@@ -246,9 +250,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CarouselSlider(
                   items: <Widget>[
                     Column(children: <Widget>[
-                      carouselDraw(context, "hernaval", "images/alt.png")
+                      carouselDraw(context, "John Doe", "images/1.jpg"),
+                      carouselDraw(context, "Mike San", "images/2.jpg")
                     ],)
                   ], 
+                  initialPage: 0,
+            height: 150,
+            viewportFraction: 0.3,
+            enlargeCenterPage: true,
+            scrollDirection: Axis.horizontal,
                 ) ,
               )
               //)
@@ -383,7 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(40.0),
                     border: Border.all(color: Colors.white),
                     image: DecorationImage(
-                        image: AssetImage('assets/person.jpeg'),
+                        image: AssetImage('assets/person.jpg'),
                         fit: BoxFit.cover)),
               ),
               Positioned(
