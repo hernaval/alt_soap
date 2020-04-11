@@ -1,6 +1,5 @@
  
-import 'package:alt_soap/src/utils/utils.dart';
-import 'package:alt_soap/src/views/widgets/customAppBar.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     
     return SafeArea(
-      
+        
     );
   }
 }

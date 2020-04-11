@@ -13,11 +13,13 @@ class _IntroScreenState extends State<IntroScreen> {
     Screen  size;
     final _controller = PageController();
     bool leadingVisibility = false;
-
+    String health ="";
+    String environemnt ="";
+    String generosity ="";
     final List<Widget> _pages = [
-    IntroPage("images/onboard_1.png","Activity", "View activity collected by your fitness trackers and your other mobile apps! \n \n Data has never been more beautiful or easier to understand!"),
-    IntroPage("images/onboard_2.png","PhotoFIT", "A new kind of fittness tracking! \n \n 100% free, because great heath should be accessible to all!"),
-    IntroPage("images/onboard_3.png","PhotoLAPSE", "Your progress photos are being put to good use! \n \n The photoLAPSE feature allows you to view your result over custom time periods!"),
+    IntroPage("images/onboard_1.png","HEALT", "View activity collected by your fitness trackers and your other mobile apps! \n \n Data has never been more beautiful or easier to understand!"),
+    IntroPage("images/onboard_2.png","ENVIRONMENT", "A new kind of fittness tracking! \n \n 100% free, because great heath should be accessible to all!"),
+    IntroPage("images/onboard_3.png","GENEROSITY", "Your progress photos are being put to good use! \n \n The photoLAPSE feature allows you to view your result over custom time periods!"),
   ];
   int currentPageIndex = 0;
 

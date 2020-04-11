@@ -1,3 +1,6 @@
+import 'package:alt_soap/src/utils/utils.dart';
+import 'package:alt_soap/src/views/screens/intro.dart';
+import 'package:alt_soap/src/views/screens/map.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,16 +12,16 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo,
+      backgroundColor: Loko.somaryManga, //indigo
       body: Stack(
         children: <Widget>[
           Positioned(
-            top: 200.0,
+            top: 120.0,
             child: ClipPath(
               clipper: MyClipper(),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 540.0,
+                height: 500.0,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20.0)),
@@ -26,23 +29,24 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            top: 80.0,
+            top: 50.0,
             left: MediaQuery.of(context).size.width - 170.0,
             child: Column(
               children: <Widget>[
                 Container(
-                  width: 130.0,
-                  height: 130.0,
+                  width: 110.0,
+                  height: 110.0,
                   decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
                       image: DecorationImage(
-                          image: AssetImage('assets/healthcare.png'))),
+                          image: AssetImage('images/alt.png'))),
                 ),
                 Row(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0),
                       child: Text(
-                        'Health',
+                        'Alt.',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -52,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0, left: 5.0),
                       child: Text(
-                        'Care',
+                        'SOAP',
                         style: TextStyle(
                             color: Colors.red,
                             fontWeight: FontWeight.bold,
@@ -65,8 +69,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            top: 290.0,
-            left: 40.0,
+            top: 200.0,
+            left: 30.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -79,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0),
                       child: Text(
-                        'Health',
+                        'Alt.',
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -89,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0, left: 5.0),
                       child: Text(
-                        'Care',
+                        'SOAP',
                         style: TextStyle(
                             color: Colors.red,
                             fontWeight: FontWeight.bold,
@@ -162,7 +166,9 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.red,
                 padding: EdgeInsets.all(12.0),
                 shape: StadiumBorder(),
-                onPressed: () {},
+                onPressed: () {
+                  Utils.goto(context,MapPage(),isReplace : true);
+                },
                 child: Text(
                   'LOGIN',
                   style: TextStyle(color: Colors.white),

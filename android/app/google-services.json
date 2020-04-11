@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "741269066264",
+    "firebase_url": "https://alt-soap-385d4.firebaseio.com",
+    "project_id": "alt-soap-385d4",
+    "storage_bucket": "alt-soap-385d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741269066264:android:096a0d7fe50a4b29f5a96d",
+        "android_client_info": {
+          "package_name": "hernaval.com.alt_soap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741269066264-srd93dqupjrhtf45bdjre41bsctjiui3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoa-oinM1dyFSahcgq9ySQpiirLMAksqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741269066264-srd93dqupjrhtf45bdjre41bsctjiui3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
