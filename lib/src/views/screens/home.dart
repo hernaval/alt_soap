@@ -1,5 +1,5 @@
  import 'package:alt_soap/src/utils/utils.dart';
-import 'package:alt_soap/src/utils/utils.dart';
+
 import 'package:alt_soap/src/views/screens/details.dart';
 import 'package:alt_soap/src/views/widgets/customBottomBar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -40,11 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 12.0,
                   ),
                   Text(
-                    'Alt.SOAP',
+                    'Alt. SOAP',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
-                        fontSize: 25.0,
+                        fontSize: 20.0,
                         fontFamily: 'Cardo'),
                   ),
                   SizedBox(
@@ -245,12 +245,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+              
               Container(
                 //height: 200,
                 child: CarouselSlider(
                   items: <Widget>[
                     Column(children: <Widget>[
-                      carouselDraw(context, "John Doe", "images/1.jpg"),
+                     // carouselDraw(context, "John Doe", "images/1.jpg"),
                       carouselDraw(context, "Mike San", "images/2.jpg")
                     ],)
                   ], 
@@ -393,7 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(40.0),
                     border: Border.all(color: Colors.white),
                     image: DecorationImage(
-                        image: AssetImage('assets/person.jpg'),
+                        image: AssetImage('images/alt.png'),
                         fit: BoxFit.cover)),
               ),
               Positioned(
@@ -421,7 +422,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(40.0),
                       border: Border.all(color: Colors.white, width: 1.5),
                       image: DecorationImage(
-                          image: AssetImage('assets/person.jpeg'),
+                          image: AssetImage('images/alt.png'),
                           fit: BoxFit.cover)),
                 ),
               ),

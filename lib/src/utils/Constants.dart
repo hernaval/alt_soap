@@ -19,4 +19,6 @@ class Constants{
 
   //URL For list of photos
   static const String accessKey = "f96abcd230664d7cab7ed900470db93878d44b15d672603e8c6817a267a96c78";
+
+  static const String map_key ="pk.eyJ1IjoiaGVybmF2YWwiLCJhIjoiY2s4dnhiOWlxMDQyNDNmcW9ocmYwa3pydyJ9.rPUIIZ0bvyuESCsjD3tAww";
 }

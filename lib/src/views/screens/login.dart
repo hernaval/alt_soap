@@ -1,14 +1,21 @@
 import 'package:alt_soap/src/utils/utils.dart';
-import 'package:alt_soap/src/views/screens/home.dart';
 
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+ 
+
+ 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+   
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,6 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                     width: 250.0,
                     child: TextField(
+                      controller: email,
                       decoration: InputDecoration(
                           labelText: 'Username',
                           hintText: 'Enter your username',
@@ -132,6 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                     width: 250.0,
                     child: TextField(
+                      controller: password,
                       decoration: InputDecoration(
                           labelText: 'Password',
                           hintText: 'Enter your password',
@@ -166,9 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.red,
                 padding: EdgeInsets.all(12.0),
                 shape: StadiumBorder(),
-                onPressed: () {
-                  Utils.goto(context,HomeScreen(),isReplace : true);
-                },
+                onPressed: (){},
                 child: Text(
                   'LOGIN',
                   style: TextStyle(color: Colors.white),

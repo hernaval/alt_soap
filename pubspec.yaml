@@ -28,6 +28,11 @@ dependencies:
   cloud_firestore: ^0.12.9+3
   curved_navigation_bar: ^0.3.2
   carousel_slider: ^1.4.1
+  flutter_map: any
+  flutter_spinkit : "^4.1.2"
+  
+  
+  latlong: ^0.6.1
   connectivity:
     
   

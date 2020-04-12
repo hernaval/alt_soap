@@ -1,8 +1,10 @@
 import 'dart:io';
 
+
 import 'package:alt_soap/src/utils/Constants.dart';
 import 'package:alt_soap/src/utils/utils.dart';
 import 'package:alt_soap/src/views/screens/login.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +110,7 @@ class Utils{
         builder: (_) {
           return alert;
         });
-  }
+    }
 
 
   static int getColorHexFromStr(String colorStr)
@@ -168,7 +170,7 @@ class Utils{
                   },
                   child: InkWell(
                     onTap : () {
-                      Utils.goto(context, LoginPage());
+                      Utils.goto(context,LoginPage());
                     },
                     child : Row(
                     children: <Widget>[
@@ -187,6 +189,164 @@ class Utils{
           ));
         });
   }
+
+  static void addingProviders(BuildContext context ){
+    
+    final usernameCtrl = TextEditingController();
+    final quantityCtrl = TextEditingController();
+    final activityCtrl = TextEditingController();
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+              content: Container(
+                
+                
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+            
+              children: <Widget>[
+                Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                  Icon(FontAwesomeIcons.userCircle, color: Loko.blue, size: 36),
+                  Padding(
+                    padding: EdgeInsets.only(right: 8),
+                  ),
+                  Text("Oil Providers",
+                      style: TextStyle(
+                          fontSize: 16, fontFamily: "GoogleSans Bold"))
+                ]),
+                Divider(),
+                Text(
+                    "Please fill all informations if you want to allow us collecting your oil",
+                    style: TextStyle(fontSize: 14)),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 3),
+                ),
+                
+                Padding(
+                  padding: const EdgeInsets.only(top : 12.0),
+                  child: Container(
+                      width: 250.0,
+                      child: TextField(
+                        controller: usernameCtrl,
+                        decoration: InputDecoration(
+                            labelText: 'Username',
+                            hintText: 'Enter your username',
+                            hintStyle: TextStyle(color: Colors.grey),
+                            prefixIcon: Icon(
+                              Icons.account_circle,
+                              color: Colors.grey,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0))),
+                      ),
+                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top : 12.0),
+                  child: Container(
+                      width: 250.0,
+                      child: TextField(
+                        controller: activityCtrl,
+                        decoration: InputDecoration(
+                            labelText: 'Your Activity',
+                            hintText: 'Restaurant, Motel, Particular',
+                            hintStyle: TextStyle(color: Colors.grey),
+                            prefixIcon: Icon(
+                              Icons.account_circle,
+                              color: Colors.grey,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0))),
+                      ),
+                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top : 12.0),
+                  child: Container(
+                      width: 250.0,
+                      child: TextField(
+                        controller: quantityCtrl,
+                        decoration: InputDecoration(
+                            labelText: 'Product Quantity per Months',
+                            hintText: 'Quantity',
+                            hintStyle: TextStyle(color: Colors.grey),
+                            prefixIcon: Icon(
+                              Icons.account_circle,
+                              color: Colors.grey,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0))),
+                      ),
+                    ),
+                ),
+
+                Center(
+          child: Row(children: <Widget>[
+            Text("Pork contact ?",style : TextStyle(color :Colors.grey)),
+            Switch(
+            value: false,
+            onChanged: (value) {
+              
+              print(value);
+              /* setState(() {
+                isSwitched = value;
+                print(isSwitched);
+              }); */
+            },
+            activeTrackColor: Colors.lightGreenAccent,
+            activeColor: Loko.somaryManga,
+          ),
+          ],)
+        ),
+                
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top : 8.0),
+                    child: RaisedButton(
+                    splashColor: Colors.yellow,
+                    color: Loko.somaryMainty,
+                    padding: EdgeInsets.all(12.0),
+                    shape: StadiumBorder(),
+                    onPressed: (){
+                      submitProviders(usernameCtrl.text,activityCtrl.text,quantityCtrl.text,true);
+                      Navigator.pop(context);
+                      
+                      //print("tafiditra");
+                    },
+                    child: Text(
+                      'Next',
+                      style: TextStyle(color: Colors.white),
+                    ),
+              ),
+                  ),
+                ),
+                
+                
+              ],
+            ),
+          ));
+        });
+  }
+
+  
+
+
+
+static void submitProviders(String username,String activity,String quantity,bool isPork) async{
+    final db = Firestore.instance;
+    DocumentReference ref = await db.collection("providers").add({
+      "username" : "$username",
+      "activity":"$activity",
+      "quantity":"$quantity",
+      "isPork":"$isPork",
+    });
+
+    
+}
+  
 
 
 }
