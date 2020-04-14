@@ -29,6 +29,8 @@ dependencies:
   curved_navigation_bar: ^0.3.2
   carousel_slider: ^1.4.1
   flutter_map: any
+  flutter_mapbox_autocomplete: ^1.0.4
+  flutter_mapbox_navigation: ^0.0.10
   flutter_spinkit : "^4.1.2"
   
   

@@ -1,12 +1,9 @@
-
- import 'dart:async';
+import 'dart:async';
 import 'package:alt_soap/src/localStorage.dart';
 import 'package:alt_soap/src/utils/utils.dart';
 import 'package:alt_soap/src/views/screens/intro.dart';
 import 'package:flutter/material.dart';
-
-
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -14,17 +11,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-   Screen size;
+  Screen size;
 
   @override
   void initState() {
     super.initState();
 
-    Timer(
-      Duration(seconds : 2) ,(){
+     Timer(
+      Duration(seconds : 3) ,(){
         Utils.goto(context,IntroScreen(),isReplace: false);
       }
-    );
+    ); 
   }
 
   @override
@@ -32,17 +29,33 @@ class _SplashScreenState extends State<SplashScreen> {
     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
         body: Center(
-        child: Container(
-          width: size.getWidthPx(300),
-          height: size.getWidthPx(300),
-          child: Image.asset("images/alt.png")))
-    );
+            child: Container(
+              decoration: BoxDecoration(color: Colors.white),
+                margin: EdgeInsets.only(top: 70),
+                child: Column(
+                  children: <Widget>[
+                    Image.asset("images/alt.png"),
+                    SizedBox(
+                      height: 50,
+                    ),
+                  
+                    SpinKitRing(
+
+                      color: Loko.somaryMainty,
+                      size: 50.0,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top : 20),
+                      child: Text("Please wait loading...",style : TextStyle(color: Colors.grey)) ,
+                    )
+                    
+                  ],
+                ))));
   }
 
-  
-//test if new then go to intro screen 
+//test if new then go to intro screen
 //else login
-   /* Future navigateFromSplash () async {
+  /* Future navigateFromSplash () async {
 
     String isOnBoard = await LocalStorage.sharedInstance.readValue(Constants.isOnBoard);
       print("isOnBoard  $isOnBoard");
@@ -54,5 +67,4 @@ class _SplashScreenState extends State<SplashScreen> {
       }
   } */
 
- 
 }

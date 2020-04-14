@@ -1,4 +1,6 @@
 import 'package:alt_soap/src/utils/utils.dart';
+import 'package:alt_soap/src/views/screens/userCollector/user_dash.dart';
+
 
 import 'package:flutter/material.dart';
 
@@ -175,7 +177,9 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.red,
                 padding: EdgeInsets.all(12.0),
                 shape: StadiumBorder(),
-                onPressed: (){},
+                onPressed: (){
+                  Utils.goto(context,UserDashboard(),isReplace : false);
+                },
                 child: Text(
                   'LOGIN',
                   style: TextStyle(color: Colors.white),
@@ -188,6 +192,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
 
 class MyClipper extends CustomClipper<Path> {
   @override

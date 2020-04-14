@@ -13,7 +13,7 @@ class CustomCurve extends StatelessWidget {
       
       Icon(FontAwesomeIcons.home, size: 30),
       Icon(Icons.add, size: 30),
-      Icon(FontAwesomeIcons.markdown, size: 30),
+      Icon(FontAwesomeIcons.mapMarkerAlt, size: 30),
     ],
     onTap: (index) {
       if(index ==0) {
